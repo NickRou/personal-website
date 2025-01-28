@@ -2,7 +2,7 @@
 import Footer from "../components/Footer.astro";
 import Header from "../components/Header.astro";
 
-const { pageTitle } = Astro.props;
+const { pageTitle, heroHeader } = Astro.props;
 ---
 
 <!doctype html>
@@ -21,7 +21,16 @@ const { pageTitle } = Astro.props;
 		<Header />
 		<div class="max-w-4xl mx-auto px-4 flex-grow">
 			<main>
-				<slot />
+				<div class="hero bg-base-100 mt-12 mb-12">
+					<div class="hero-content text-center">
+						<div class="max-w-md">
+							<h1 class="text-5xl font-bold pb-6">
+								{heroHeader}
+							</h1>
+							<slot />
+						</div>
+					</div>
+				</div>
 			</main>
 		</div>
 		<Footer />

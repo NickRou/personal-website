@@ -1,0 +1,71 @@
+---
+import Layout from "../layouts/Layout.astro";
+import { Image } from "astro:assets";
+import surfingPicture from "../assets/me-surfing.jpeg";
+import peruPicture from "../assets/peru-alpine-lake.jpeg";
+---
+
+<Layout pageTitle="Nicklas Rouvinen" heroHeader="My Life">
+    <div class="carousel w-full">
+        <div id="slide1" class="carousel-item relative w-full">
+            <Image
+                src={surfingPicture}
+                alt="Surfing"
+                width={1024}
+                height={1024}
+                style={{ objectFit: "contain" }}
+            />
+            <div
+                class="absolute left-5 right-5 top-1/2 flex -translate-y-1/2 transform justify-between"
+            >
+                <a href="#slide4" class="btn btn-circle">❮</a>
+                <a href="#slide2" class="btn btn-circle">❯</a>
+            </div>
+        </div>
+        <div id="slide2" class="carousel-item relative w-full">
+            <Image
+                src={peruPicture}
+                alt="Surfing"
+                width={1024}
+                height={1024}
+                style={{ objectFit: "contain" }}
+            />
+            <div
+                class="absolute left-5 right-5 top-1/2 flex -translate-y-1/2 transform justify-between"
+            >
+                <a href="#slide1" class="btn btn-circle">❮</a>
+                <a href="#slide3" class="btn btn-circle">❯</a>
+            </div>
+        </div>
+        <div id="slide3" class="carousel-item relative w-full">
+            <Image
+                src={surfingPicture}
+                alt="Surfing"
+                width={1024}
+                height={1024}
+                style={{ objectFit: "contain" }}
+            />
+            <div
+                class="absolute left-5 right-5 top-1/2 flex -translate-y-1/2 transform justify-between"
+            >
+                <a href="#slide2" class="btn btn-circle">❮</a>
+                <a href="#slide4" class="btn btn-circle">❯</a>
+            </div>
+        </div>
+        <div id="slide4" class="carousel-item relative w-full">
+            <Image
+                src={surfingPicture}
+                alt="Surfing"
+                width={1024}
+                height={1024}
+                style={{ objectFit: "contain" }}
+            />
+            <div
+                class="absolute left-5 right-5 top-1/2 flex -translate-y-1/2 transform justify-between"
+            >
+                <a href="#slide3" class="btn btn-circle">❮</a>
+                <a href="#slide1" class="btn btn-circle">❯</a>
+            </div>
+        </div>
+    </div>
+</Layout>

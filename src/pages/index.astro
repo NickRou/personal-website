@@ -1,10 +1,25 @@
 ---
 import Layout from "../layouts/Layout.astro";
 import Hero from "../components/Hero.astro";
-import Card from "../components/Card.astro";
+import { Image } from "astro:assets";
+import surfingPicture from "../assets/me-surfing.jpeg";
 ---
 
-<Layout pageTitle="Home">
-	<Hero />
-	<Card />
+<Layout pageTitle="Nicklas Rouvinen" heroHeader="Hi, I'm Nicklas!">
+    <div class="mask mask-circle">
+        <Image src={surfingPicture} alt="Peru" width={1024} height={1024} />
+    </div>
+    <p class="pt-6 p-2">
+        I'm currently a senior software engineer at Guidewire Software.
+    </p>
+    <a href="/work">
+        <button class="btn btn-ghost inline-block"
+            >See My Work Experience</button
+        >
+    </a>
+    <div class="divider"></div>
+    <p class="p-2">I also like to share my favorite pictures.</p>
+    <a href="/personal">
+        <button class="btn btn-ghost inline-block">See Some Pictures</button>
+    </a>
 </Layout>
