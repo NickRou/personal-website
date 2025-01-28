@@ -1,24 +1,29 @@
 ---
+import Footer from "../components/Footer.astro";
 import Header from "../components/Header.astro";
 
 const { pageTitle } = Astro.props;
 ---
 
 <!doctype html>
-<html lang="en" data-theme="dark">
+<html lang="en">
 	<head>
 		<meta charset="UTF-8" />
 		<meta name="viewport" content="width=device-width" />
 		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 		<meta name="generator" content={Astro.generator} />
 		<title>{pageTitle}</title>
+		<script>
+			import "../scripts/theme-switcher.js";
+		</script>
 	</head>
-	<body>
+	<body class="flex flex-col min-h-screen">
 		<Header />
-		<main>
-			<slot />
-		</main>
+		<div class="max-w-4xl mx-auto px-4 flex-grow">
+			<main>
+				<slot />
+			</main>
+		</div>
+		<Footer />
 	</body>
 </html>
-
-<style></style>
