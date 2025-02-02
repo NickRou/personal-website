@@ -1,18 +1,10 @@
 // Initialize theme on page load
 document.addEventListener('DOMContentLoaded', () => {
     const checkbox = document.querySelector('.theme-controller');
-    const htmlElement = document.documentElement;
     
-    // Check localStorage for the theme preference
+    // Only set checkbox state, theme is already set by inline script
     const savedTheme = localStorage.getItem('theme');
-    if (savedTheme) {
-        htmlElement.setAttribute('data-theme', savedTheme);
-        checkbox.checked = savedTheme === 'sunset'; // Checked if sunset theme is active
-    } else {
-        // Default to light theme if no preference is saved
-        htmlElement.removeAttribute('data-theme'); // Light theme
-        checkbox.checked = false; // Unchecked for light theme
-    }
+    checkbox.checked = savedTheme === 'sunset';
     
     // Add change event listener
     checkbox.addEventListener('change', () => toggleTheme(checkbox));

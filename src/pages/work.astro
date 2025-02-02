@@ -1,20 +1,85 @@
 ---
-import Timeline from "../components/Timeline.astro";
+const companies: Company[] = [
+    {
+        name: "Guidewire Software",
+        logo: "/src/assets/logo/guidewire-logo.jpeg",
+        roles: [
+            {
+                title: "Senior Software Engineer",
+                duration: "Oct 2024 - Present",
+                location: "San Mateo, CA (Remote)",
+                description: [], // TODO: Add description
+            },
+            {
+                title: "Software Engineer III",
+                duration: "Oct 2021 - Oct 2024",
+                location: "San Mateo, CA (Remote)",
+                description: [], // TODO: Add description
+            },
+            {
+                title: "Software Engineer II",
+                duration: "May 2020 - Oct 2021",
+                location: "San Mateo, CA (Remote)",
+                description: [], // TODO: Add description
+            },
+        ],
+    },
+    {
+        name: "Thrivent",
+        logo: "/src/assets/logo/thrivent-logo.jpeg",
+        roles: [
+            {
+                title: "Software Engineer Intern, Investments",
+                duration: "Jun 2019 - Aug 2019",
+                location: "Minneapolis, MN)",
+                description: [], // TODO: Add description
+            },
+        ],
+    },
+];
+
+const schools: Company[] = [
+    {
+        name: "University of Minnesota - Twin Cities",
+        logo: "/src/assets/logo/u-of-mn-logo.jpeg",
+        roles: [
+            {
+                title: "Bachelor of Science - BS, Mathematics - Computer Applications",
+                duration: "2016 - 2020",
+                location: "Minneapolis, MN",
+                description: [], // TODO: Add description
+            },
+        ],
+    },
+];
+import CompanyCard, { type Company } from "../components/CompanyCard.astro";
 import Layout from "../layouts/Layout.astro";
 ---
 
 <Layout pageTitle="Work">
-    <h1 class="text-5xl font-bold p-6">Work Experience</h1>
-    <div class="divider divider-neutral"></div>
-
-    <p class="text-left pt-6 font-bold">Where am I right now?</p>
-    <p class="text-left">
-        I'm currently working as a senior software engineer at Guidewire
-        Software. I've been here for ~ 5 years now.
-    </p>
-    <br />
-    <p class="text-left font-bold">Timeline of my work experience?</p>
-    <br />
-
-    <Timeline />
-</Layout>
+    <div class="container mx-auto max-w-screen-xl px-4">
+        <div class="flex flex-col items-start pt-12">
+            <h1 class="text-4xl font-bold pt-6">Work Experience</h1>
+        </div>
+        <div class="flex flex-col items-start">
+            <div class="w-full mx-auto pt-6">
+                <div class="space-y-6">
+                    {
+                        companies.map((company) => (
+                            <CompanyCard company={company} />
+                        ))
+                    }
+                </div>
+            </div>
+        </div>
+        <div class="flex flex-col items-start pt-12">
+            <h1 class="text-4xl font-bold pt-6">Education</h1>
+        </div>
+        <div class="flex flex-col items-start">
+            <div class="w-full mx-auto pt-6">
+                <div class="space-y-6"></div>
+                {schools.map((school) => <CompanyCard company={school} />)}
+            </div>
+        </div>
+    </div></Layout
+>

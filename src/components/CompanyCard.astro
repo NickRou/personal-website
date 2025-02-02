@@ -1,0 +1,80 @@
+---
+import Image from "astro/components/Image.astro";
+
+export interface Role {
+    title: string;
+    duration: string;
+    location: string;
+    description: string[];
+}
+
+export interface Company {
+    name: string;
+    logo: string;
+    roles: Role[];
+}
+
+interface Props {
+    company: Company;
+}
+
+const { company } = Astro.props;
+
+const images = import.meta.glob<{ default: ImageMetadata }>(
+    "/src/assets/logo/*.{jpeg,jpg,png,gif}",
+);
+if (!images[company.logo])
+    throw new Error(
+        `"${company.logo}" does not exist in glob: "src/assets/logo/*.{jpeg,jpg,png,gif}"`,
+    );
+---
+
+<div class="card bg-base-100 border">
+    <div class="card-body">
+        <div class="flex items-start gap-4">
+            <div class="rounded">
+                <Image
+                    src={images[company.logo]()}
+                    alt={`${company.name} logo`}
+                    width={36}
+                    height={36}
+                />
+            </div>
+            <div class="flex-1">
+                <h3 class="card-title text-lg font-bold">
+                    {company.name}
+                </h3>
+
+                <div class="mt-4 space-y-6">
+                    {
+                        company.roles.map((role, index) => (
+                            <div
+                                class={`relative ${index !== 0 ? "pt-6 border-t border-base-300" : ""}`}
+                            >
+                                <h4 class="font-semibold text-base">
+                                    {role.title}
+                                </h4>
+
+                                <div class="flex flex-col sm:flex-row sm:items-center gap-1 sm:gap-4 text-sm text-base-content/70 mt-1">
+                                    <span>{role.duration}</span>
+                                    <span class="hidden sm:block">•</span>
+                                    <span>{role.location}</span>
+                                </div>
+
+                                <div class="mt-3">
+                                    <ul class="list-disc list-inside space-y-2">
+                                        {role.description.map((item) => (
+                                            <li class="text-base-content/90">
+                                                {item}
+                                            </li>
+                                        ))}
+                                    </ul>
+                                </div>
+                            </div>
+                        ))
+                    }
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

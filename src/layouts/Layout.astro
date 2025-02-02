@@ -13,23 +13,24 @@ const { pageTitle } = Astro.props;
 		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 		<meta name="generator" content={Astro.generator} />
 		<title>{pageTitle}</title>
+		<script is:inline>
+			const theme = localStorage.getItem("theme");
+			if (theme) {
+				document.documentElement.setAttribute("data-theme", theme);
+			}
+		</script>
 		<script>
 			import "../scripts/theme-switcher.js";
 		</script>
 	</head>
-	<body class="flex flex-col min-h-screen">
+	<body
+		class="container mx-auto max-w-md md:max-w-3xl min-h-screen flex flex-col"
+	>
 		<Header />
-		<div class="max-w-4xl mx-auto px-4 flex-grow">
-			<main>
-				<div class="hero bg-base-100">
-					<div class="hero-content text-center">
-						<div class="max-w-md">
-							<slot />
-						</div>
-					</div>
-				</div>
-			</main>
-		</div>
-		<Footer />
+		<main class="flex-grow">
+			<slot />
+		</main>
 	</body>
 </html>
+
+<Footer />
