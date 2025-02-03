@@ -77,8 +77,9 @@ import Layout from "../layouts/Layout.astro";
         </div>
         <div class="flex flex-col items-start">
             <div class="w-full mx-auto pt-6">
-                <div class="space-y-6"></div>
-                {schools.map((school) => <CompanyCard company={school} />)}
+                <div class="space-y-6">
+                    {schools.map((school) => <CompanyCard company={school} />)}
+                </div>
             </div>
         </div>
     </div></Layout

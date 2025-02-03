@@ -1,0 +1,83 @@
+---
+// ImageDetailCard.astro
+export interface ImageCardProps {
+  title: string;
+  imageSrc: string;
+  imageAlt: string;
+  description: string;
+  stats: {
+    label: string;
+    value: string;
+  }[];
+  imageOnLeft?: boolean;
+}
+
+const {
+  title,
+  imageSrc,
+  imageAlt,
+  description,
+  stats,
+  imageOnLeft = true
+} = Astro.props;
+---
+
+<div class="card lg:card-side bg-base-100 border">
+  <!-- Conditionally order the image and content -->
+  {imageOnLeft ? (
+    <>
+      <figure class="lg:w-1/2">
+        <img 
+          src={imageSrc} 
+          alt={imageAlt}
+          class="w-full h-full object-cover"
+        />
+      </figure>
+      <div class="card-body lg:w-1/2">
+        <h2 class="card-title text-2xl font-bold">{title}</h2>
+        
+        <!-- Stats Grid -->
+        <div class="grid grid-cols-2 gap-4 my-4">
+          {stats.map((stat: { label: string; value: string }) => (
+            <div class="stats shadow">
+              <div class="stat p-2">
+                <div class="stat-title text-xs opacity-70">{stat.label}</div>
+                <div class="stat-value text-sm">{stat.value}</div>
+              </div>
+            </div>
+          ))}
+        </div>
+
+        <p class="text-base-content/80">{description}</p>
+        
+      </div>
+    </>
+  ) : (
+    <>
+      <div class="card-body lg:w-1/2">
+        <h2 class="card-title text-2xl font-bold">{title}</h2>
+        
+        <!-- Stats Grid -->
+        <div class="grid grid-cols-2 gap-4 my-4">
+          {stats.map((stat: { label: string; value: string }) => (
+            <div class="stats shadow">
+              <div class="stat p-2">
+                <div class="stat-title text-xs opacity-70">{stat.label}</div>
+                <div class="stat-value text-sm">{stat.value}</div>
+              </div>
+            </div>
+          ))}
+        </div>
+
+        <p class="text-base-content/80">{description}</p>
+      </div>
+      <figure class="lg:w-1/2">
+        <img 
+          src={imageSrc} 
+          alt={imageAlt}
+          class="w-full h-full object-cover"
+        />
+      </figure>
+    </>
+  )}
+</div>
