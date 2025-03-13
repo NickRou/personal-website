@@ -1,7 +1,61 @@
-<footer
-    class="footer bg-base-100 text-base-content items-center p-4 justify-center"
->
-    <aside class="grid-flow-col items-center">
-        <p>Copyright © {new Date().getFullYear()} - All right reserved</p>
+---
+import Github from "../assets/svg/github-mark-white.svg";
+---
+
+<footer class="footer bg-base-100 pt-10 flex items-center justify-between">
+    <aside class="font-extralight">
+        <p>@ {new Date().getFullYear()} Nicklas Rouvinen.</p>
     </aside>
+    <div class="flex flex-row">
+        <a href="https://www.linkedin.com/in/nickrou/" target="_blank">
+            <svg
+                class="fill-gray-400"
+                id="LinkedIn_24"
+                width="24"
+                height="24"
+                viewBox="0 0 24 24"
+                xmlns="http://www.w3.org/2000/svg"
+                xmlns:xlink="http://www.w3.org/1999/xlink"
+                ><rect
+                    width="24"
+                    height="24"
+                    stroke="none"
+                    fill="#000000"
+                    opacity="0"></rect>
+
+                <g transform="matrix(0.91 0 0 0.91 12 12)">
+                    <path
+                        style="stroke: none; stroke-width: 1; stroke-dasharray: none; stroke-linecap: butt; stroke-dashoffset: 0; stroke-linejoin: miter; stroke-miterlimit: 4; fill-rule: nonzero; opacity: 1;"
+                        transform=" translate(-15, -15)"
+                        d="M 24 4 L 6 4 C 4.895 4 4 4.895 4 6 L 4 24 C 4 25.105 4.895 26 6 26 L 24 26 C 25.105 26 26 25.105 26 24 L 26 6 C 26 4.895 25.105 4 24 4 z M 10.954 22 L 8.004000000000001 22 L 8.004000000000001 12.508 L 10.954 12.508 L 10.954 22 z M 9.449 11.151 C 8.498 11.151 7.729 10.379999999999999 7.729 9.431 C 7.729 8.482 8.499 7.711999999999999 9.449 7.711999999999999 C 10.397 7.711999999999999 11.168 8.482999999999999 11.168 9.431 C 11.168 10.38 10.397 11.151 9.449 11.151 z M 22.004 22 L 19.056 22 L 19.056 17.384 C 19.056 16.283 19.036 14.867 17.523 14.867 C 15.988 14.867 15.751999999999999 16.066000000000003 15.751999999999999 17.304000000000002 L 15.751999999999999 22 L 12.803999999999998 22 L 12.803999999999998 12.508 L 15.633999999999999 12.508 L 15.633999999999999 13.805 L 15.673999999999998 13.805 C 16.067999999999998 13.059 17.029999999999998 12.272 18.464999999999996 12.272 C 21.451999999999998 12.272 22.003999999999998 14.238 22.003999999999998 16.794 L 22.003999999999998 22 z"
+                        stroke-linecap="round"></path>
+                </g>
+            </svg></a
+        >
+        <a href="https://github.com/NickRou" target="_blank">
+            <svg
+                class="fill-gray-400"
+                id="GitHub_24"
+                width="24"
+                height="24"
+                viewBox="0 0 24 24"
+                xmlns="http://www.w3.org/2000/svg"
+                xmlns:xlink="http://www.w3.org/1999/xlink"
+                ><rect
+                    width="24"
+                    height="24"
+                    stroke="none"
+                    fill="#000000"
+                    opacity="0"></rect>
+
+                <g transform="matrix(0.83 0 0 0.83 12 12)">
+                    <path
+                        style="stroke: none; stroke-width: 1; stroke-dasharray: none; stroke-linecap: butt; stroke-dashoffset: 0; stroke-linejoin: miter; stroke-miterlimit: 4; fill-rule: nonzero; opacity: 1;"
+                        transform=" translate(-15, -14.82)"
+                        d="M 15 3 C 8.373 3 3 8.373 3 15 C 3 20.623 6.872 25.328 12.092 26.630000000000003 C 12.036 26.468 12 26.28 12 26.047 L 12 23.996000000000002 C 11.513 23.996000000000002 10.697 23.996000000000002 10.492 23.996000000000002 C 9.671000000000001 23.996000000000002 8.941 23.643 8.587000000000002 22.987000000000002 C 8.194 22.258000000000003 8.126000000000001 21.143 7.152000000000001 20.461000000000002 C 6.863000000000001 20.234 7.083000000000001 19.975 7.416000000000001 20.01 C 8.031 20.184 8.541 20.606 9.021 21.232000000000003 C 9.499 21.859 9.724 22.001 10.617 22.001 C 11.05 22.001 11.698 21.976000000000003 12.308000000000002 21.880000000000003 C 12.636000000000001 21.047000000000004 13.203000000000001 20.28 13.896 19.918000000000003 C 9.9 19.507 7.993000000000001 17.519000000000002 7.993000000000001 14.820000000000004 C 7.993000000000001 13.658000000000005 8.488000000000001 12.534000000000004 9.329 11.587000000000003 C 9.053 10.647 8.706 8.73 9.435 8 C 11.233 8 12.32 9.166 12.581 9.481 C 13.477 9.174 14.461 9 15.495 9 C 16.531 9 17.519 9.174 18.416999999999998 9.483 C 18.675 9.17 19.763 8 21.565 8 C 22.297 8.731 21.946 10.656 21.667 11.594 C 22.503 12.539 22.995 13.66 22.995 14.82 C 22.995 17.517 21.091 19.504 17.101 19.917 C 18.199 20.49 19 22.1 19 23.313 L 19 26.046999999999997 C 19 26.150999999999996 18.977 26.225999999999996 18.965 26.314999999999998 C 23.641 24.676 27 20.236 27 15 C 27 8.373 21.627 3 15 3 z"
+                        stroke-linecap="round"></path>
+                </g>
+            </svg></a
+        >
+    </div>
 </footer>

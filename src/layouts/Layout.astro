@@ -1,6 +1,7 @@
 ---
 import Footer from "../components/Footer.astro";
 import Header from "../components/Header.astro";
+import "../styles/global.css";
 
 const { pageTitle } = Astro.props;
 ---
@@ -14,14 +15,11 @@ const { pageTitle } = Astro.props;
         <meta name="generator" content={Astro.generator} />
         <title>{pageTitle}</title>
     </head>
-    <body
-        class="container mx-auto max-w-md md:max-w-3xl min-h-screen flex flex-col p-4"
-    >
-        <Header />
-        <main class="flex-grow">
+    <body class="container mx-auto max-w-md md:max-w-3xl min-h-screen p-4">
+        <main>
+            <Header />
             <slot />
+            <Footer />
         </main>
     </body>
 </html>
-
-<Footer />

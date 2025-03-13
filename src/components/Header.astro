@@ -1,45 +1,35 @@
 ---
-import ThemeController from "./ThemeController.astro";
-import { themeChange } from "theme-change";
+const pathname = Astro.url.pathname;
+import Logo from "../../public/favicon.svg";
 ---
 
-<div class="navbar bg-base-100">
-    <div class="navbar-start">
-        <div class="dropdown">
-            <div tabindex="0" role="button" class="btn btn-ghost lg:hidden">
-                <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    class="h-5 w-5"
-                    fill="none"
-                    viewBox="0 0 24 24"
-                    stroke="currentColor"
-                >
-                    <path
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
-                        stroke-width="2"
-                        d="M4 6h16M4 12h8m-8 6h16"></path>
-                </svg>
-            </div>
-            <ul
-                tabindex="0"
-                class="menu menu-sm dropdown-content bg-base-100 rounded-box z-[1] mt-3 w-52 p-2 shadow"
-            >
-                <li class="font-bold"><a href="/">Home</a></li>
-                <li class="font-bold"><a href="/work">Work</a></li>
-                <li class="font-bold"><a href="/personal">Personal</a></li>
-            </ul>
+<div
+    class="navbar bg-base-100 flex flex-col items-center pt-10 pb-10 pl-0 pr-0"
+>
+    <div class="w-full flex items-center justify-center relative pb-2">
+        <div class="absolute left-0">
+            <Logo class="h-8 w-8" />
         </div>
-        <a href="/" class="btn btn-ghost text-xl p-2">Nicklas Rouvinen</a>
+        <a class="text-2xl font-semibold">Nicklas Rouvinen</a>
     </div>
-    <div class="navbar-center hidden lg:flex">
-        <ul class="menu menu-horizontal px-1">
-            <li class="font-bold"><a href="/">Home</a></li>
-            <li class="font-bold"><a href="/work">Work</a></li>
-            <li class="font-bold"><a href="/personal">Personal</a></li>
-        </ul>
-    </div>
-    <div class="navbar-end">
-        <ThemeController />
+    <div class="flex flex-row gap-4 font-light text-sm">
+        <a
+            href="/"
+            class={pathname === "/"
+                ? "border-b border-green-500 text-green-500"
+                : ""}>Home</a
+        >
+        <a
+            href="/work"
+            class={pathname === "/work"
+                ? "border-b border-green-500 text-green-500"
+                : ""}>Work</a
+        >
+        <a
+            href="/personal"
+            class={pathname === "/personal"
+                ? "border-b border-green-500 text-green-500"
+                : ""}>Photos</a
+        >
     </div>
 </div>
