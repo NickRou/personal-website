@@ -7,30 +7,21 @@ const { pageTitle } = Astro.props;
 
 <!doctype html>
 <html lang="en">
-	<head>
-		<meta charset="UTF-8" />
-		<meta name="viewport" content="width=device-width" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<meta name="generator" content={Astro.generator} />
-		<title>{pageTitle}</title>
-		<script is:inline>
-			const theme = localStorage.getItem("theme");
-			if (theme) {
-				document.documentElement.setAttribute("data-theme", theme);
-			}
-		</script>
-		<script>
-			import "../scripts/theme-switcher.js";
-		</script>
-	</head>
-	<body
-		class="container mx-auto max-w-md md:max-w-3xl min-h-screen flex flex-col"
-	>
-		<Header />
-		<main class="flex-grow">
-			<slot />
-		</main>
-	</body>
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width" />
+        <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+        <meta name="generator" content={Astro.generator} />
+        <title>{pageTitle}</title>
+    </head>
+    <body
+        class="container mx-auto max-w-md md:max-w-3xl min-h-screen flex flex-col p-4"
+    >
+        <Header />
+        <main class="flex-grow">
+            <slot />
+        </main>
+    </body>
 </html>
 
 <Footer />
