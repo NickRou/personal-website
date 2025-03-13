@@ -1,5 +1,6 @@
 ---
 const pathname = Astro.url.pathname;
+const currentPage = "/" + pathname.split("/")[1];
 import Logo from "../../public/favicon.svg";
 ---
 
@@ -15,19 +16,19 @@ import Logo from "../../public/favicon.svg";
     <div class="flex flex-row gap-4 font-light text-sm">
         <a
             href="/"
-            class={pathname === "/"
+            class={currentPage === "/"
                 ? "border-b border-green-500 text-green-500"
                 : ""}>Home</a
         >
         <a
             href="/work"
-            class={pathname === "/work"
+            class={currentPage === "/work"
                 ? "border-b border-green-500 text-green-500"
                 : ""}>Work</a
         >
         <a
             href="/photos"
-            class={pathname === "/photos"
+            class={currentPage === "/photos"
                 ? "border-b border-green-500 text-green-500"
                 : ""}>Photos</a
         >
