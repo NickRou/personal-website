@@ -1,86 +1,124 @@
 ---
-const companies: Company[] = [
-    {
-        name: "Guidewire Software",
-        logo: "/src/assets/logo/guidewire-logo.jpeg",
-        roles: [
-            {
-                title: "Senior Software Engineer",
-                duration: "Oct 2024 - Present",
-                location: "San Mateo, CA (Remote)",
-                description: [], // TODO: Add description
-            },
-            {
-                title: "Software Engineer III",
-                duration: "Oct 2021 - Oct 2024",
-                location: "San Mateo, CA (Remote)",
-                description: [], // TODO: Add description
-            },
-            {
-                title: "Software Engineer II",
-                duration: "May 2020 - Oct 2021",
-                location: "San Mateo, CA (Remote)",
-                description: [], // TODO: Add description
-            },
-        ],
-    },
-    {
-        name: "Thrivent",
-        logo: "/src/assets/logo/thrivent-logo.jpeg",
-        roles: [
-            {
-                title: "Software Engineer Intern, Investments",
-                duration: "Jun 2019 - Aug 2019",
-                location: "Minneapolis, MN)",
-                description: [], // TODO: Add description
-            },
-        ],
-    },
-];
-
-const schools: Company[] = [
-    {
-        name: "University of Minnesota - Twin Cities",
-        logo: "/src/assets/logo/u-of-mn-logo.jpeg",
-        roles: [
-            {
-                title: "Bachelor of Science - BS, Mathematics - Computer Applications",
-                duration: "2016 - 2020",
-                location: "Minneapolis, MN",
-                description: [], // TODO: Add description
-            },
-        ],
-    },
-];
-import CompanyCard, { type Company } from "../components/CompanyCard.astro";
 import Layout from "../layouts/Layout.astro";
+import { Image } from "astro:assets";
+import guidewireLogo from "../assets/logo/guidewire-logo.jpeg";
+import thriventLogo from "../assets/logo/thrivent-logo.jpeg";
+import uOfMnLogo from "../assets/logo/u-of-mn-logo.jpeg";
 ---
 
 <Layout pageTitle="Work">
-    <div class="container mx-auto max-w-screen-xl px-4">
-        <div class="flex flex-col items-start pt-12">
-            <h1 class="text-4xl font-bold pt-6">Work Experience</h1>
-        </div>
-        <div class="flex flex-col items-start">
-            <div class="w-full mx-auto pt-6">
-                <div class="space-y-6">
-                    {
-                        companies.map((company) => (
-                            <CompanyCard company={company} />
-                        ))
-                    }
-                </div>
-            </div>
-        </div>
-        <div class="flex flex-col items-start pt-12">
-            <h1 class="text-4xl font-bold pt-6">Education</h1>
-        </div>
-        <div class="flex flex-col items-start">
-            <div class="w-full mx-auto pt-6">
-                <div class="space-y-6">
-                    {schools.map((school) => <CompanyCard company={school} />)}
-                </div>
-            </div>
-        </div>
-    </div></Layout
->
+    <h1 class="text-xl font-semibold">Work Experience</h1>
+    <div class="overflow-x-auto pt-4">
+        <table class="table">
+            <thead>
+                <tr>
+                    <th class="pl-0">Company</th>
+                    <th class="pl-0">Title</th>
+                    <th class="pl-0">Date</th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                <!-- Guidewire Software -->
+                <tr>
+                    <td class="pl-0">
+                        <div class="flex items-center gap-3">
+                            <div class="avatar">
+                                <div class="mask mask-squircle h-12 w-12">
+                                    <Image
+                                        src={guidewireLogo}
+                                        alt="Guidewire Logo"
+                                    />
+                                </div>
+                            </div>
+                            <div>
+                                <div class="font-bold">Guidewire Software</div>
+                                <div class="text-sm opacity-50">
+                                    San Mateo, CA
+                                </div>
+                            </div>
+                        </div>
+                    </td>
+                    <td class="pl-0"> Senior Software Engineer </td>
+                    <td class="pl-0"> Oct 2024 - Present </td>
+                </tr>
+                <tr>
+                    <td class="pl-0"> </td>
+                    <td class="pl-0"> Software Engineer III </td>
+                    <td class="pl-0"> Oct 2021 - Oct 2024 </td>
+                </tr>
+                <tr>
+                    <td class="pl-0"> </td>
+                    <td class="pl-0"> Software Engineer II </td>
+                    <td class="pl-0"> May 2020 - Oct 2021 </td>
+                </tr>
+                <!-- Thrivent Financial -->
+                <tr>
+                    <td class="pl-0">
+                        <div class="flex items-center gap-3">
+                            <div class="avatar">
+                                <div class="mask mask-squircle h-12 w-12">
+                                    <Image
+                                        src={thriventLogo}
+                                        alt="Thrivent Logo"
+                                    />
+                                </div>
+                            </div>
+                            <div>
+                                <div class="font-bold">Thrivent Financial</div>
+                                <div class="text-sm opacity-50">
+                                    Minneapolis, MN
+                                </div>
+                            </div>
+                        </div>
+                    </td>
+                    <td class="pl-0">
+                        Application Engineer Intern, Investments
+                    </td>
+                    <td class="pl-0">Jun 2019 - Aug 2019</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <h1 class="text-xl font-semibold pt-10">Education</h1>
+
+    <div class="overflow-x-auto pt-4">
+        <table class="table">
+            <thead>
+                <tr>
+                    <th class="pl-0">School</th>
+                    <th class="pl-0">Degree</th>
+                    <th class="pl-0">Date</th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                <!-- University of Minnesota - Twin Cities -->
+                <tr>
+                    <td class="pl-0">
+                        <div class="flex items-center gap-3">
+                            <div class="avatar">
+                                <div class="mask mask-squircle h-12 w-12">
+                                    <Image
+                                        src={uOfMnLogo}
+                                        alt="U of MN - Twin Cities Logo"
+                                    />
+                                </div>
+                            </div>
+                            <div>
+                                <div class="font-bold">
+                                    University of Minnesota - Twin Cities
+                                </div>
+                                <div class="text-sm opacity-50">
+                                    Minneapolis, MN
+                                </div>
+                            </div>
+                        </div>
+                    </td>
+                    <td class="pl-0">B.S. Mathematics and Computer Science</td>
+                    <td class="pl-0">Sep 2016 - May 2020</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</Layout>
