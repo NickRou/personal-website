@@ -9,85 +9,254 @@ import steamboatPicture from "../assets/2024/steamboat.jpeg";
 import cowPicture from "../assets/2025/cow.jpeg";
 import rockPicture from "../assets/2025/rock.jpeg";
 import mdoPicture from "../assets/2025/mdo.jpeg";
+
+// Create an array of all images for the lightbox
+const allImages = [
+  { src: peruPicture, alt: "Alpine lake in Peru" },
+  { src: bigSurPicture, alt: "Big Sur coastline" },
+  { src: sanJacintoPicture, alt: "San Jacinto mountains" },
+  { src: steamboatPicture, alt: "Steamboat" },
+  { src: spaceXPicture, alt: "SpaceX launch" },
+  { src: cowPicture, alt: "Cow in field" },
+  { src: rockPicture, alt: "Rock formation" },
+  { src: mdoPicture, alt: "MDO landscape" },
+];
 ---
 
-<Layout pageTitle="Photos">
-    <h1 class="text-xl font-semibold pb-4">2025</h1>
-    <div class="carousel">
-        <div class="carousel-item">
-            <Image
-                src={cowPicture}
-                alt="Cow"
-                width={600}
-                height={400}
-                densities={[2, 3]}
-            />
-        </div>
-        <div class="carousel-item">
-            <Image
-                src={mdoPicture}
-                alt="MDO"
-                width={600}
-                height={400}
-                densities={[2, 3]}
-            />
-        </div>
-        <div class="carousel-item">
-            <Image
-                src={rockPicture}
-                alt="rock"
-                width={600}
-                height={400}
-                densities={[2, 3]}
-            />
-        </div>
+<Layout title="Travel Photography">
+  <h1 class="text-xl font-semibold">Photos</h1>
+  <div class="container mx-auto py-8">
+    <div class="grid grid-cols-12 gap-1">
+      <div
+        class="col-span-6 row-span-2 relative group overflow-hidden shadow-md cursor-pointer"
+        data-image-index="0"
+      >
+        <Image
+          src={peruPicture}
+          alt="Alpine lake in Peru"
+          class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+          densities={[1, 1.5, 2]}
+          width={800}
+        />
+      </div>
+
+      <div
+        class="col-span-3 overflow-hidden group shadow-md cursor-pointer"
+        data-image-index="1"
+      >
+        <Image
+          src={bigSurPicture}
+          alt="Big Sur coastline"
+          class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+          densities={[1, 2]}
+          width={400}
+        />
+      </div>
+
+      <div
+        class="col-span-3 overflow-hidden shadow-md cursor-pointer group"
+        data-image-index="2"
+      >
+        <Image
+          src={sanJacintoPicture}
+          alt="San Jacinto mountains"
+          class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+          densities={[1, 2]}
+          width={400}
+        />
+      </div>
+
+      <div
+        class="col-span-3 overflow-hidden shadow-md cursor-pointer group"
+        data-image-index="3"
+      >
+        <Image
+          src={steamboatPicture}
+          alt="Steamboat"
+          class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+          densities={[1, 2]}
+          width={400}
+        />
+      </div>
+
+      <div
+        class="col-span-3 overflow-hidden shadow-md cursor-pointer group"
+        data-image-index="4"
+      >
+        <Image
+          src={spaceXPicture}
+          alt="SpaceX launch"
+          class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+          densities={[1, 1.5, 2]}
+          width={400}
+        />
+      </div>
+
+      <div
+        class="col-span-6 overflow-hidden shadow-md cursor-pointer group"
+        data-image-index="5"
+      >
+        <Image
+          src={cowPicture}
+          alt="Cow in field"
+          class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+          densities={[1, 2]}
+          width={600}
+        />
+      </div>
+
+      <div
+        class="col-span-6 overflow-hidden shadow-md cursor-pointer group"
+        data-image-index="6"
+      >
+        <Image
+          src={rockPicture}
+          alt="Rock formation"
+          class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+          densities={[1, 2]}
+          width={600}
+        />
+      </div>
     </div>
-    <h1 class="text-xl font-semibold pt-4 pb-4">2024</h1>
-    <div class="carousel">
-        <div class="carousel-item">
-            <Image
-                src={bigSurPicture}
-                alt="Big Sur"
-                width={600}
-                height={400}
-                densities={[2, 3]}
-            />
-        </div>
-        <div class="carousel-item">
-            <Image
-                src={peruPicture}
-                alt="Peru"
-                width={600}
-                height={400}
-                densities={[2, 3]}
-            />
-        </div>
-        <div class="carousel-item">
-            <Image
-                src={sanJacintoPicture}
-                alt="San Jacinto"
-                width={600}
-                height={400}
-                densities={[2, 3]}
-            />
-        </div>
-        <div class="carousel-item">
-            <Image
-                src={spaceXPicture}
-                alt="Space X"
-                width={600}
-                height={400}
-                densities={[2, 3]}
-            />
-        </div>
-        <div class="carousel-item">
-            <Image
-                src={steamboatPicture}
-                alt="steamboat"
-                width={600}
-                height={400}
-                densities={[2, 3]}
-            />
-        </div>
+
+    <div
+      class="mt-1 overflow-hidden shadow-md cursor-pointer group"
+      data-image-index="7"
+    >
+      <Image
+        src={mdoPicture}
+        alt="MDO landscape"
+        class="w-full h-64 object-cover object-center transition-transform duration-700 group-hover:scale-105"
+        densities={[1, 1.5, 2]}
+        width={1600}
+      />
     </div>
+  </div>
+
+  <div
+    id="lightbox"
+    class="fixed inset-0 bg-black bg-opacity-90 hidden z-50 flex items-center justify-center"
+  >
+    <div class="relative w-full h-full flex items-center justify-center">
+      <button
+        id="close-lightbox"
+        class="absolute top-4 right-4 text-white text-4xl z-10">&times;</button
+      >
+
+      <button id="prev-image" class="absolute left-4 text-white text-4xl z-10"
+        >&lt;</button
+      >
+      <button id="next-image" class="absolute right-4 text-white text-4xl z-10"
+        >&gt;</button
+      >
+
+      <!-- Image container -->
+      <div id="lightbox-content" class="max-w-full max-h-full px-8">
+        <img
+          id="lightbox-image"
+          src=""
+          alt=""
+          class="max-w-full max-h-[90vh] object-contain mx-auto"
+        />
+        <p id="lightbox-caption" class="text-white text-center mt-4 text-lg">
+        </p>
+      </div>
+    </div>
+  </div>
 </Layout>
+
+<style>
+  img {
+    aspect-ratio: 1 / 1;
+    height: 100%;
+  }
+
+  .mt-1 img {
+    aspect-ratio: auto;
+  }
+
+  #lightbox-image {
+    aspect-ratio: auto;
+  }
+</style>
+
+<script>
+  document.addEventListener("DOMContentLoaded", () => {
+    const lightbox = document.getElementById("lightbox");
+    const lightboxImage = document.getElementById(
+      "lightbox-image"
+    ) as HTMLImageElement;
+    const lightboxCaption = document.getElementById("lightbox-caption");
+    const closeButton = document.getElementById("close-lightbox");
+    const prevButton = document.getElementById("prev-image");
+    const nextButton = document.getElementById("next-image");
+    const imageContainers = document.querySelectorAll("[data-image-index]");
+
+    let currentIndex: number = 0;
+    const imageSources: string[] = [];
+    const imageAlts: string[] = [];
+
+    imageContainers.forEach((container) => {
+      const img = container.querySelector("img");
+      if (img) {
+        imageSources.push(img.src);
+        imageAlts.push(img.alt);
+      }
+    });
+
+    function openLightbox(index: number) {
+      currentIndex = index;
+      lightboxImage.src = imageSources[index];
+      lightboxCaption!.textContent = imageAlts[index];
+      lightbox!.classList.remove("hidden");
+      document.body.style.overflow = "hidden";
+    }
+
+    function closeLightbox() {
+      lightbox!.classList.add("hidden");
+      document.body.style.overflow = "";
+    }
+
+    function prevImage() {
+      currentIndex =
+        (currentIndex - 1 + imageSources.length) % imageSources.length;
+      lightboxImage.src = imageSources[currentIndex];
+      lightboxCaption!.textContent = imageAlts[currentIndex];
+    }
+
+    function nextImage() {
+      currentIndex = (currentIndex + 1) % imageSources.length;
+      lightboxImage.src = imageSources[currentIndex];
+      lightboxCaption!.textContent = imageAlts[currentIndex];
+    }
+
+    imageContainers.forEach((container) => {
+      container.addEventListener("click", () => {
+        const index = parseInt(container.getAttribute("data-image-index")!);
+        openLightbox(index);
+      });
+    });
+
+    closeButton!.addEventListener("click", closeLightbox);
+    prevButton!.addEventListener("click", prevImage);
+    nextButton!.addEventListener("click", nextImage);
+
+    lightbox!.addEventListener("click", (e) => {
+      if (e.target === lightbox) {
+        closeLightbox();
+      }
+    });
+
+    document.addEventListener("keydown", (e) => {
+      if (lightbox!.classList.contains("hidden")) return;
+
+      if (e.key === "Escape") {
+        closeLightbox();
+      } else if (e.key === "ArrowLeft") {
+        prevImage();
+      } else if (e.key === "ArrowRight") {
+        nextImage();
+      }
+    });
+  });
+</script>
